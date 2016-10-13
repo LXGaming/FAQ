@@ -1,0 +1,14 @@
+FAQ:
+  Command:
+    - "Info"
+    - "Rules"
+    - "anothercommandhere"
+  Message:
+    info:
+      - "&4Testing"
+      - "&aInfo"
+    rules:
+      - "&4Testing"
+      - "&aRules"
+    anothercommandhere:
+      - "&4Message Here"
