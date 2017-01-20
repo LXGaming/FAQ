@@ -1,0 +1,40 @@
+apply from: "../.gradle/sign.gradle"
+apply plugin: "java"
+
+targetCompatibility = 1.8
+sourceCompatibility = 1.8
+
+version = "0.1.2"
+group = "io.github.lxgaming.faq"
+archivesBaseName = "FAQ"
+
+configurations {
+  provided {
+    compile.extendsFrom(provided)
+  }
+  build {
+    finalizedBy(signJar)
+  }
+}
+
+repositories {
+  mavenCentral()
+  maven {
+    url "https://oss.sonatype.org/content/repositories/snapshots/"
+  }
+}
+
+dependencies {
+  provided "net.md-5:bungeecord-api:1.11-SNAPSHOT"
+}
+
+jar {
+  from {
+    (configurations.compile - configurations.provided).collect {
+	  it.isDirectory() ? it : zipTree(it)
+	}
+  }
+  from {
+    ["LICENSE"]
+  }
+}
