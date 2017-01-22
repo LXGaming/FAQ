@@ -1,5 +1,5 @@
-name: ${project.artifactId}
+name: ${name}
 main: io.github.lxgaming.faq.FAQ
-version: ${project.version}
+version: ${version}
 author: LX_Gaming
 website: http://www.lxgaming.github.io
